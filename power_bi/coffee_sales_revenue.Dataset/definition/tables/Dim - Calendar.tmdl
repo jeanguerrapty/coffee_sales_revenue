@@ -1,0 +1,72 @@
+table 'Dim - Calendar'
+	lineageTag: 6ed93872-75a6-4f2f-beea-46276ede7bb2
+	dataCategory: Time
+
+	column Date
+		dataType: dateTime
+		isKey
+		formatString: Long Date
+		lineageTag: 5cd0c956-2e0e-4429-b0be-c9ddac8bbbb8
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Year
+		dataType: double
+		lineageTag: bde9ad8e-e770-4feb-a3bc-54124b12d497
+		summarizeBy: none
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Month Number'
+		dataType: double
+		lineageTag: 2d27edb3-0e82-40a3-9979-918b0e64d6c9
+		summarizeBy: none
+		sourceColumn: Month Number
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Month
+		dataType: string
+		lineageTag: 47852567-cc46-476f-ac92-6732a16396f5
+		summarizeBy: none
+		sourceColumn: Month
+		sortByColumn: 'Month Number'
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column Day
+		dataType: double
+		lineageTag: d3858e91-4079-4d45-ad31-651486d297b9
+		summarizeBy: none
+		sourceColumn: Day
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'Dim - Calendar' = m
+		mode: import
+		queryGroup: Dimension
+		source =
+				let
+				    Source = Value.NativeQuery(PostgreSQL.Database("localhost:5432", "postgres"), "select distinct on (transaction_timestamp::date)#(lf)#(tab)tf.transaction_timestamp::date ""date"",#(lf)#(tab)date_part('year', tf.transaction_timestamp) as ""year"",#(lf)#(tab)date_part('month', tf.transaction_timestamp) as ""month_number"",#(lf)#(tab)to_char(tf.transaction_timestamp::date, 'Mon') as ""month_name"",#(lf)#(tab)date_part('day', tf.transaction_timestamp) as ""day""#(lf)from dev.coffee_sales_revenue_txn_fact tf", null, [EnableFolding=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"date", type date}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"date", "Date"}, {"year", "Year"}, {"month_number", "Month Number"}, {"month_name", "Month"}, {"day", "Day"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,240 @@
+{
+  "config": "{\"version\":\"5.51\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU02\",\"version\":\"5.51\",\"type\":2}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"useEnhancedTooltips\":true,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}]}}",
+  "layoutOptimization": 0,
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY24SU02",
+            "path": "BaseThemes/CY24SU02.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{}",
+      "displayName": "Revenue by Location",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "ReportSection",
+      "ordinal": 1,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"24d6d242dd4a71bb7ad3\",\"layouts\":[{\"id\":0,\"position\":{\"x\":639.4948697711128,\"y\":191.9494869771113,\"z\":2,\"width\":640.5051302288871,\"height\":528.3662194159432,\"tabOrder\":2}}],\"singleVisual\":{\"visualType\":\"barChart\",\"projections\":{\"Y\":[{\"queryRef\":\"Fact - Coffee Sales.Total Revenue\"}],\"Category\":[{\"queryRef\":\"Dim - Stores.Store Location\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"Fact - Coffee Sales\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"Dim - Stores\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Total Revenue\"},\"Name\":\"Fact - Coffee Sales.Total Revenue\",\"NativeReferenceName\":\"Total Revenue\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Store Location\"},\"Name\":\"Dim - Stores.Store Location\",\"NativeReferenceName\":\"Store Location\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Total Revenue\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"labels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"labelDisplayUnits\":{\"expr\":{\"Literal\":{\"Value\":\"1000D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 528.37,
+          "width": 640.51,
+          "x": 639.49,
+          "y": 191.95,
+          "z": 2.00
+        },
+        {
+          "config": "{\"name\":\"4171cc1c42fa8f15258b\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":58.59510655090765,\"z\":0,\"width\":1280,\"height\":133.35438042620362}}],\"singleVisual\":{\"visualType\":\"cardVisual\",\"projections\":{\"Data\":[{\"queryRef\":\"Fact - Coffee Sales.Total Orders\"},{\"queryRef\":\"Fact - Coffee Sales.Total Qty\"},{\"queryRef\":\"Fact - Coffee Sales.Total Revenue\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"Fact - Coffee Sales\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Total Orders\"},\"Name\":\"Fact - Coffee Sales.Total Orders\",\"NativeReferenceName\":\"Orders\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Total Revenue\"},\"Name\":\"Fact - Coffee Sales.Total Revenue\",\"NativeReferenceName\":\"Revenue\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Total Qty\"},\"Name\":\"Fact - Coffee Sales.Total Qty\",\"NativeReferenceName\":\"Units\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Total Orders\"}}}]},\"columnProperties\":{\"Fact - Coffee Sales.Total Orders\":{\"displayName\":\"Orders\"},\"Fact - Coffee Sales.Total Qty\":{\"displayName\":\"Units\"},\"Fact - Coffee Sales.Total Revenue\":{\"displayName\":\"Revenue\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 133.35,
+          "width": 1280.00,
+          "x": 0.00,
+          "y": 58.60,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"421032e77af19bbf6d92\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":191.9494869771113,\"z\":4,\"width\":639.4948697711128,\"height\":528.3662194159432,\"tabOrder\":4}}],\"singleVisual\":{\"visualType\":\"barChart\",\"projections\":{\"Category\":[{\"queryRef\":\"Dim - Stores.Store Location\",\"active\":true}],\"Y\":[{\"queryRef\":\"Fact - Coffee Sales.Total Qty\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"Dim - Stores\",\"Type\":0},{\"Name\":\"f\",\"Entity\":\"Fact - Coffee Sales\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Store Location\"},\"Name\":\"Dim - Stores.Store Location\",\"NativeReferenceName\":\"Store Location\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Total Qty\"},\"Name\":\"Fact - Coffee Sales.Total Qty\",\"NativeReferenceName\":\"Total Qty\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Total Qty\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"labels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"labelDisplayUnits\":{\"expr\":{\"Literal\":{\"Value\":\"1000D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 528.37,
+          "width": 639.49,
+          "x": 0.00,
+          "y": 191.95,
+          "z": 4.00
+        },
+        {
+          "config": "{\"name\":\"4b3857248035fb51a728\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":3,\"width\":1280,\"height\":58.59510655090765,\"tabOrder\":3}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"Coffee Shop Revenue by Location\",\"textStyle\":{\"fontWeight\":\"bold\",\"fontSize\":\"24pt\"}}],\"horizontalTextAlignment\":\"center\"}]}}]}}}",
+          "filters": "[]",
+          "height": 58.60,
+          "width": 1280.00,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 3.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Time Intel",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "ReportSection19348434e6c50142f8dd",
+      "ordinal": 3,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"297fd97646bb2d4a0968\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":2,\"width\":1280,\"height\":58.59510655090765,\"tabOrder\":1}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"Coffee Shop Revenue Overview\",\"textStyle\":{\"fontWeight\":\"bold\",\"fontSize\":\"24pt\"}}],\"horizontalTextAlignment\":\"center\"}]}}]}}}",
+          "filters": "[]",
+          "height": 58.60,
+          "width": 1280.00,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 2.00
+        },
+        {
+          "config": "{\"name\":\"29abc1db44c0b54fd187\",\"layouts\":[{\"id\":0,\"position\":{\"x\":300.0473559589582,\"y\":58.59510655090765,\"z\":4,\"width\":300.0473559589582,\"height\":75.76953433307024,\"tabOrder\":4}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"Dim - Stores.Store Location\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"Dim - Stores\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Store Location\"},\"Name\":\"Dim - Stores.Store Location\",\"NativeReferenceName\":\"Store Location\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{}}]}}}",
+          "filters": "[]",
+          "height": 75.77,
+          "width": 300.05,
+          "x": 300.05,
+          "y": 58.60,
+          "z": 4.00
+        },
+        {
+          "config": "{\"name\":\"822da3228a8842f24260\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":248.7336244541485,\"z\":7,\"width\":1280,\"height\":206.8122270742358,\"tabOrder\":7}}],\"singleVisual\":{\"visualType\":\"pivotTable\",\"projections\":{\"Rows\":[{\"queryRef\":\"Dim - Calendar.Month\",\"active\":true}],\"Values\":[{\"queryRef\":\"Fact - Coffee Sales.Total Revenue\"},{\"queryRef\":\"Fact - Coffee Sales.Total Revenue MoM%\"}],\"Columns\":[{\"queryRef\":\"Dim - Stores.Store Location\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"Fact - Coffee Sales\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"Dim - Calendar\",\"Type\":0},{\"Name\":\"d1\",\"Entity\":\"Dim - Stores\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Total Revenue\"},\"Name\":\"Fact - Coffee Sales.Total Revenue\",\"NativeReferenceName\":\"Revenue\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Total Revenue MoM%\"},\"Name\":\"Fact - Coffee Sales.Total Revenue MoM%\",\"NativeReferenceName\":\"Revenue MoM%\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Month\"},\"Name\":\"Dim - Calendar.Month\",\"NativeReferenceName\":\"Month\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d1\"}},\"Property\":\"Store Location\"},\"Name\":\"Dim - Stores.Store Location\",\"NativeReferenceName\":\"Store Location\"}]},\"columnProperties\":{\"Fact - Coffee Sales.Total Revenue\":{\"displayName\":\"Revenue\"},\"Fact - Coffee Sales.Total Revenue MoM%\":{\"displayName\":\"Revenue MoM%\"}},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 206.81,
+          "width": 1280.00,
+          "x": 0.00,
+          "y": 248.73,
+          "z": 7.00
+        },
+        {
+          "config": "{\"name\":\"87bab44b45daef1a1985\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":134.3646408839779,\"z\":1,\"width\":1280,\"height\":114.15943172849249,\"tabOrder\":2}}],\"singleVisual\":{\"visualType\":\"cardVisual\",\"projections\":{\"Data\":[{\"queryRef\":\"Fact - Coffee Sales.Total Orders\"},{\"queryRef\":\"Fact - Coffee Sales.Total Qty\"},{\"queryRef\":\"Fact - Coffee Sales.Total Revenue\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"Fact - Coffee Sales\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Total Orders\"},\"Name\":\"Fact - Coffee Sales.Total Orders\",\"NativeReferenceName\":\"Orders\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Total Revenue\"},\"Name\":\"Fact - Coffee Sales.Total Revenue\",\"NativeReferenceName\":\"Revenue\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Total Qty\"},\"Name\":\"Fact - Coffee Sales.Total Qty\",\"NativeReferenceName\":\"Units\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Total Orders\"}}}]},\"columnProperties\":{\"Fact - Coffee Sales.Total Orders\":{\"displayName\":\"Orders\"},\"Fact - Coffee Sales.Total Qty\":{\"displayName\":\"Units\"},\"Fact - Coffee Sales.Total Revenue\":{\"displayName\":\"Revenue\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 114.16,
+          "width": 1280.00,
+          "x": 0.00,
+          "y": 134.36,
+          "z": 1.00
+        },
+        {
+          "config": "{\"name\":\"a45af474999a49dd7bd9\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":455.54585152838433,\"z\":8,\"width\":1280,\"height\":264.1048034934498,\"tabOrder\":8}}],\"singleVisual\":{\"visualType\":\"pivotTable\",\"projections\":{\"Rows\":[{\"queryRef\":\"Dim - Calendar.Month\",\"active\":true}],\"Values\":[{\"queryRef\":\"Fact - Coffee Sales.Total Revenue\"},{\"queryRef\":\"Fact - Coffee Sales.Total Revenue MoM%\"}],\"Columns\":[{\"queryRef\":\"Dim - Products.Product Category\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"Fact - Coffee Sales\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"Dim - Calendar\",\"Type\":0},{\"Name\":\"d1\",\"Entity\":\"Dim - Products\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Total Revenue\"},\"Name\":\"Fact - Coffee Sales.Total Revenue\",\"NativeReferenceName\":\"Revenue\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Total Revenue MoM%\"},\"Name\":\"Fact - Coffee Sales.Total Revenue MoM%\",\"NativeReferenceName\":\"Revenue MoM%\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Month\"},\"Name\":\"Dim - Calendar.Month\",\"NativeReferenceName\":\"Month\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d1\"}},\"Property\":\"Product Category\"},\"Name\":\"Dim - Products.Product Category\",\"NativeReferenceName\":\"Product Category\"}]},\"columnProperties\":{\"Fact - Coffee Sales.Total Revenue\":{\"displayName\":\"Revenue\"},\"Fact - Coffee Sales.Total Revenue MoM%\":{\"displayName\":\"Revenue MoM%\"}},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 264.10,
+          "width": 1280.00,
+          "x": 0.00,
+          "y": 455.55,
+          "z": 8.00
+        },
+        {
+          "config": "{\"name\":\"b559da5179d285333c0d\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":58.59510655090765,\"z\":3,\"width\":300.0473559589582,\"height\":75.76953433307024,\"tabOrder\":3}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"Dim - Products.Product Category\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"Dim - Products\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Product Category\"},\"Name\":\"Dim - Products.Product Category\",\"NativeReferenceName\":\"Product Category\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{}}]}}}",
+          "filters": "[]",
+          "height": 75.77,
+          "width": 300.05,
+          "x": 0.00,
+          "y": 58.60,
+          "z": 3.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Overview",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "ReportSection530b32a80bd12b1360c9",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"333cda9a0900e3acc112\",\"layouts\":[{\"id\":0,\"position\":{\"x\":300.0473559589582,\"y\":58.59510655090765,\"z\":4,\"width\":300.0473559589582,\"height\":75.76953433307024,\"tabOrder\":4}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"Dim - Stores.Store Location\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"Dim - Stores\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Store Location\"},\"Name\":\"Dim - Stores.Store Location\",\"NativeReferenceName\":\"Store Location\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{}}]}}}",
+          "filters": "[]",
+          "height": 75.77,
+          "width": 300.05,
+          "x": 300.05,
+          "y": 58.60,
+          "z": 4.00
+        },
+        {
+          "config": "{\"name\":\"88bfcd0e616829942df1\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":58.59510655090765,\"z\":3,\"width\":300.0473559589582,\"height\":75.76953433307024,\"tabOrder\":3}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"Dim - Products.Product Category\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"Dim - Products\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Product Category\"},\"Name\":\"Dim - Products.Product Category\",\"NativeReferenceName\":\"Product Category\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{}}]}}}",
+          "filters": "[]",
+          "height": 75.77,
+          "width": 300.05,
+          "x": 0.00,
+          "y": 58.60,
+          "z": 3.00
+        },
+        {
+          "config": "{\"name\":\"a61f3beb57313c07a29a\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":2,\"width\":1280,\"height\":58.59510655090765,\"tabOrder\":1}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"Coffee Shop Revenue Overview\",\"textStyle\":{\"fontWeight\":\"bold\",\"fontSize\":\"24pt\"}}],\"horizontalTextAlignment\":\"center\"}]}}]}}}",
+          "filters": "[]",
+          "height": 58.60,
+          "width": 1280.00,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 2.00
+        },
+        {
+          "config": "{\"name\":\"b72797d6ce4218457f1c\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":134.3646408839779,\"z\":1,\"width\":1280,\"height\":114.15943172849249,\"tabOrder\":2}}],\"singleVisual\":{\"visualType\":\"cardVisual\",\"projections\":{\"Data\":[{\"queryRef\":\"Fact - Coffee Sales.Total Orders\"},{\"queryRef\":\"Fact - Coffee Sales.Total Qty\"},{\"queryRef\":\"Fact - Coffee Sales.Total Revenue\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"Fact - Coffee Sales\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Total Orders\"},\"Name\":\"Fact - Coffee Sales.Total Orders\",\"NativeReferenceName\":\"Orders\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Total Revenue\"},\"Name\":\"Fact - Coffee Sales.Total Revenue\",\"NativeReferenceName\":\"Revenue\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Total Qty\"},\"Name\":\"Fact - Coffee Sales.Total Qty\",\"NativeReferenceName\":\"Units\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Total Orders\"}}}]},\"columnProperties\":{\"Fact - Coffee Sales.Total Orders\":{\"displayName\":\"Orders\"},\"Fact - Coffee Sales.Total Qty\":{\"displayName\":\"Units\"},\"Fact - Coffee Sales.Total Revenue\":{\"displayName\":\"Revenue\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 114.16,
+          "width": 1280.00,
+          "x": 0.00,
+          "y": 134.36,
+          "z": 1.00
+        },
+        {
+          "config": "{\"name\":\"cece20eebde48957489d\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":248.5240726124704,\"z\":0,\"width\":1280,\"height\":471.79163378058405,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"lineChart\",\"projections\":{\"Category\":[{\"queryRef\":\"Dim - Calendar.Year\"},{\"queryRef\":\"Dim - Calendar.Month\",\"active\":true},{\"queryRef\":\"Dim - Calendar.Date\"}],\"Y\":[{\"queryRef\":\"Fact - Coffee Sales.Total Orders\"},{\"queryRef\":\"Fact - Coffee Sales.Total Revenue\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"Dim - Calendar\",\"Type\":0},{\"Name\":\"f\",\"Entity\":\"Fact - Coffee Sales\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Date\"},\"Name\":\"Dim - Calendar.Date\",\"NativeReferenceName\":\"Date\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Year\"},\"Name\":\"Dim - Calendar.Year\",\"NativeReferenceName\":\"Year\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Month\"},\"Name\":\"Dim - Calendar.Month\",\"NativeReferenceName\":\"Month\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Total Revenue\"},\"Name\":\"Fact - Coffee Sales.Total Revenue\",\"NativeReferenceName\":\"Total Revenue\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Total Orders\"},\"Name\":\"Fact - Coffee Sales.Total Orders\",\"NativeReferenceName\":\"Total Orders\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 471.79,
+          "width": 1280.00,
+          "x": 0.00,
+          "y": 248.52,
+          "z": 0.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Revenue by Product",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "ReportSection93a9614c6c903138dc0a",
+      "ordinal": 2,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"19eb3ae85b306b085db8\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":58.59510655090765,\"z\":0,\"width\":1280,\"height\":133.35438042620362,\"tabOrder\":3000}}],\"singleVisual\":{\"visualType\":\"cardVisual\",\"projections\":{\"Data\":[{\"queryRef\":\"Fact - Coffee Sales.Total Orders\"},{\"queryRef\":\"Fact - Coffee Sales.Total Qty\"},{\"queryRef\":\"Fact - Coffee Sales.Total Revenue\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"Fact - Coffee Sales\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Total Orders\"},\"Name\":\"Fact - Coffee Sales.Total Orders\",\"NativeReferenceName\":\"Orders\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Total Revenue\"},\"Name\":\"Fact - Coffee Sales.Total Revenue\",\"NativeReferenceName\":\"Revenue\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Total Qty\"},\"Name\":\"Fact - Coffee Sales.Total Qty\",\"NativeReferenceName\":\"Units\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Total Orders\"}}}]},\"columnProperties\":{\"Fact - Coffee Sales.Total Orders\":{\"displayName\":\"Orders\"},\"Fact - Coffee Sales.Total Qty\":{\"displayName\":\"Units\"},\"Fact - Coffee Sales.Total Revenue\":{\"displayName\":\"Revenue\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 133.35,
+          "width": 1280.00,
+          "x": 0.00,
+          "y": 58.60,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"3efb04f36b50667f40ee\",\"layouts\":[{\"id\":0,\"position\":{\"x\":639.4948697711128,\"y\":191.6337805840568,\"z\":1,\"width\":640.5051302288871,\"height\":528.3662194159432,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"barChart\",\"projections\":{\"Y\":[{\"queryRef\":\"Fact - Coffee Sales.Total Revenue\"}],\"Category\":[{\"queryRef\":\"Dim - Products.Product Category\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"Fact - Coffee Sales\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"Dim - Products\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Total Revenue\"},\"Name\":\"Fact - Coffee Sales.Total Revenue\",\"NativeReferenceName\":\"Total Revenue\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Product Category\"},\"Name\":\"Dim - Products.Product Category\",\"NativeReferenceName\":\"Product Category\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Total Revenue\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"labels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"labelDisplayUnits\":{\"expr\":{\"Literal\":{\"Value\":\"1000D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 528.37,
+          "width": 640.51,
+          "x": 639.49,
+          "y": 191.63,
+          "z": 1.00
+        },
+        {
+          "config": "{\"name\":\"6aa6a32bd32c0922372a\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":191.6337805840568,\"z\":3,\"width\":639.4948697711128,\"height\":528.3662194159432,\"tabOrder\":2}}],\"singleVisual\":{\"visualType\":\"barChart\",\"projections\":{\"Y\":[{\"queryRef\":\"Fact - Coffee Sales.Total Qty\"}],\"Category\":[{\"queryRef\":\"Dim - Products.Product Category\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"Fact - Coffee Sales\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"Dim - Products\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Total Qty\"},\"Name\":\"Fact - Coffee Sales.Total Qty\",\"NativeReferenceName\":\"Total Qty\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Product Category\"},\"Name\":\"Dim - Products.Product Category\",\"NativeReferenceName\":\"Product Category\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Total Qty\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"labels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"labelDisplayUnits\":{\"expr\":{\"Literal\":{\"Value\":\"1000D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 528.37,
+          "width": 639.49,
+          "x": 0.00,
+          "y": 191.63,
+          "z": 3.00
+        },
+        {
+          "config": "{\"name\":\"dc4de383773e54ab0aa6\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":2,\"width\":1280,\"height\":58.59510655090765,\"tabOrder\":1}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"Coffee Shop Revenue by Product\",\"textStyle\":{\"fontWeight\":\"bold\",\"fontSize\":\"24pt\"}}],\"horizontalTextAlignment\":\"center\"}]}}]}}}",
+          "filters": "[]",
+          "height": 58.60,
+          "width": 1280.00,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 2.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ]
+}

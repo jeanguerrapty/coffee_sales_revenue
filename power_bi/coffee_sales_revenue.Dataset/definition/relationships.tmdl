@@ -1,0 +1,12 @@
+relationship d1ae8099-9803-4f02-a6ab-01819df084d6
+	fromColumn: 'Fact - Coffee Sales'.store_id
+	toColumn: 'Dim - Stores'.store_id
+
+relationship f91ee706-149d-467d-904f-dc5609fd9eaa
+	fromColumn: 'Fact - Coffee Sales'.product_id
+	toColumn: 'Dim - Products'.product_id
+
+relationship a3af54ee-9123-4d7f-8325-cf1dde058740
+	fromColumn: 'Fact - Coffee Sales'.'Transaction Date'
+	toColumn: 'Dim - Calendar'.Date
+

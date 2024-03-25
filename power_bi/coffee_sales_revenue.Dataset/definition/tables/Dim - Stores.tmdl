@@ -1,0 +1,51 @@
+table 'Dim - Stores'
+	lineageTag: 7220578e-315c-4c14-9571-90684c040955
+
+	measure 'Total Stores' = DISTINCTCOUNT('Dim - Stores'[store_id])
+		formatString: 0
+		displayFolder: _ Model Measures
+		lineageTag: 4a52e66a-f027-4939-866b-8c4411a1777e
+
+	column store_id
+		dataType: int64
+		isHidden
+		isKey
+		formatString: 0
+		lineageTag: 90c613fe-f781-4769-bcaa-92e03ee1d7ef
+		summarizeBy: none
+		sourceColumn: store_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Store Location'
+		dataType: string
+		lineageTag: db3d85d1-40ba-49b4-8cab-bd7822787126
+		summarizeBy: none
+		sourceColumn: Store Location
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Store Location Code'
+		dataType: string
+		lineageTag: ff334e49-12ce-4640-a826-6271576c5f3b
+		summarizeBy: none
+		sourceColumn: Store Location Code
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Dim - Stores' = m
+		mode: import
+		queryGroup: Dimension
+		source =
+				let
+				    Source = Value.NativeQuery(PostgreSQL.Database("localhost:5432", "postgres"), "select #(lf)#(tab)sd.store_id,#(lf)#(tab)sd.store_location,#(lf)#(tab)case sd.store_id when 3 then 'AS' when 5 then 'LM' when 8 then 'HK' end as store_location_cd#(lf)from dev.coffee_sales_revenue_stores_dim sd", null, [EnableFolding=true]),
+				    #"Renamed Columns" = Table.RenameColumns(Source,{{"store_location", "Store Location"}, {"store_location_cd", "Store Location Code"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

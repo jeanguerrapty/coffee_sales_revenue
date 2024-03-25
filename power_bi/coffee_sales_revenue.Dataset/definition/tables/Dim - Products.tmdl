@@ -1,0 +1,59 @@
+table 'Dim - Products'
+	lineageTag: 4b19d5b9-932b-451e-a620-423b3b087604
+
+	measure 'Total Products' = DISTINCTCOUNT('Dim - Products'[product_id])
+		formatString: 0
+		displayFolder: _ Model Measures
+		lineageTag: da890fe8-4e87-4be2-80ec-dfa0af81aab5
+
+	column product_id
+		dataType: int64
+		isHidden
+		isKey
+		formatString: 0
+		lineageTag: fcdd4e59-1d5b-4d4a-874f-85582b32aa77
+		summarizeBy: none
+		sourceColumn: product_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Product Category'
+		dataType: string
+		lineageTag: 490e4655-e4c5-4205-b87f-09de50324d39
+		summarizeBy: none
+		sourceColumn: Product Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Product Type'
+		dataType: string
+		lineageTag: 05e3db9a-346f-45a0-9dc4-11cd71fe7db5
+		summarizeBy: none
+		sourceColumn: Product Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Product Detail'
+		dataType: string
+		lineageTag: 539b276c-375f-44be-b70d-0988391b0ab3
+		summarizeBy: none
+		sourceColumn: Product Detail
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Dim - Products' = m
+		mode: import
+		queryGroup: Dimension
+		source =
+				let
+				    Source = Value.NativeQuery(PostgreSQL.Database("localhost:5432", "postgres"), "select #(lf)#(tab)pd.product_id,#(lf)#(tab)pd.product_category,#(lf)#(tab)pd.product_type,#(lf)#(tab)pd.product_detail#(lf)from dev.coffee_sales_revenue_products_dim pd", null, [EnableFolding=true]),
+				    #"Renamed Columns" = Table.RenameColumns(Source,{{"product_category", "Product Category"}, {"product_type", "Product Type"}, {"product_detail", "Product Detail"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

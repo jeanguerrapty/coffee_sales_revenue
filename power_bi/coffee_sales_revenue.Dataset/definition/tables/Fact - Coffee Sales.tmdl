@@ -1,0 +1,143 @@
+table 'Fact - Coffee Sales'
+	lineageTag: a5e6541f-ae0d-4145-9971-dcbc3f31c3c0
+
+	measure 'Total Orders' = DISTINCTCOUNT('Fact - Coffee Sales'[transaction_id])
+		formatString: #,0
+		displayFolder: _ Model Measures
+		lineageTag: 820f2f1f-13e8-44b3-b842-12315e2ed7da
+
+	measure 'Total Qty' = SUM('Fact - Coffee Sales'[transaction_qty])
+		formatString: #,0
+		displayFolder: _ Model Measures
+		lineageTag: da51b339-71e9-4bdc-9884-1f6515b9f055
+
+	measure 'Total Revenue' = SUMX('Fact - Coffee Sales', [Total Qty] * [Total Unit Price] )
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: _ Model Measures
+		lineageTag: 54533183-198a-4913-89b3-3227941f79e1
+
+	measure 'Total Unit Price' = SUM('Fact - Coffee Sales'[unit_price])
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: _ Model Measures
+		lineageTag: 630b6be1-6c31-4dfe-aed1-da65f81c27ff
+
+	measure 'Total Revenue MoM%' =
+			
+			VAR __PREV_MONTH = CALCULATE([Total Revenue], DATEADD('Dim - Calendar'[Date], -1, MONTH))
+			RETURN
+				DIVIDE([Total Revenue] - __PREV_MONTH, __PREV_MONTH)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 69c3da5a-1c25-4f7b-a405-f31d41a06eb2
+
+		extendedProperty MeasureTemplate =
+				{
+				  "version": 0,
+				  "daxTemplateName": "MonthOverMonth"
+				}
+
+		changedProperty = FormatString
+
+	measure 'Total Qty MoM%' =
+			
+			VAR __PREV_MONTH = CALCULATE([Total Qty], DATEADD('Dim - Calendar'[Date], -1, MONTH))
+			RETURN
+				DIVIDE([Total Qty] - __PREV_MONTH, __PREV_MONTH)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 3c310b87-332b-47c6-8ffb-8d874e0de277
+
+		extendedProperty MeasureTemplate =
+				{
+				  "version": 0,
+				  "daxTemplateName": "MonthOverMonth"
+				}
+
+		changedProperty = FormatString
+
+	column transaction_id
+		dataType: int64
+		isHidden
+		isKey
+		formatString: 0
+		lineageTag: 9c3bd596-91e3-4096-be22-13c15170c846
+		summarizeBy: sum
+		sourceColumn: transaction_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transaction Date'
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: b16edc40-e737-476b-bfe6-f3153ae88b7a
+		summarizeBy: none
+		sourceColumn: Transaction Date
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column transaction_qty
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: f5a7f9e2-e13a-4e0e-a59b-69e893803bd1
+		summarizeBy: sum
+		sourceColumn: transaction_qty
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column store_id
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: f2ce0461-aff2-4700-b4a7-e1d6c59ba1d8
+		summarizeBy: none
+		sourceColumn: store_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_id
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 80889e6a-d65f-46b4-9df3-79a1b5e9dd8b
+		summarizeBy: none
+		sourceColumn: product_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column unit_price
+		dataType: double
+		isHidden
+		lineageTag: 7b818881-7ead-4742-8669-c348819dc72e
+		summarizeBy: sum
+		sourceColumn: unit_price
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'Fact - Coffee Sales' = m
+		mode: import
+		queryGroup: Fact
+		source =
+				let
+				    Source = Value.NativeQuery(PostgreSQL.Database("localhost:5432", "postgres"), "select#(lf)#(tab)tf.transaction_id,#(lf)#(tab)tf.transaction_timestamp::date as transaction_date,#(lf)#(tab)tf.transaction_qty,#(lf)#(tab)tf.store_id,#(lf)#(tab)tf.product_id,#(lf)#(tab)tf.unit_price#(lf)from dev.coffee_sales_revenue_txn_fact tf", null, [EnableFolding=true]),
+				    #"Renamed Columns" = Table.RenameColumns(Source,{{"transaction_date", "Transaction Date"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

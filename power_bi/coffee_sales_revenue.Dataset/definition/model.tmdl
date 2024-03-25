@@ -1,0 +1,29 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+queryGroup Fact
+
+	annotation PBI_QueryGroupOrder = 0
+
+queryGroup Dimension
+
+	annotation PBI_QueryGroupOrder = 1
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBIDesktopVersion = 2.126.927.0 (24.02)
+
+annotation PBI_QueryOrder = ["Dim - Stores","Dim - Products","Fact - Coffee Sales","Dim - Calendar"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table 'Dim - Stores'
+ref table 'Dim - Products'
+ref table 'Fact - Coffee Sales'
+ref table 'Dim - Calendar'
+
