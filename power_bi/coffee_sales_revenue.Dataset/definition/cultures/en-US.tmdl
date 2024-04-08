@@ -2,9 +2,95 @@ culture en-US
 
 	linguisticMetadata =
 			{
-			  "Version": "1.0.0",
+			  "Version": "2.0.0",
 			  "Language": "en-US",
-			  "DynamicImprovement": "HighConfidence"
+			  "DynamicImprovement": "HighConfidence",
+			  "Entities": {
+			    "fact__coffee_sales.total_orders": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Fact - Coffee Sales",
+			          "ConceptualProperty": "Total Orders"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Orders": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "fact__coffee_sales.total_qty": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Fact - Coffee Sales",
+			          "ConceptualProperty": "Total Qty"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Units": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "fact__coffee_sales.total_revenue": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Fact - Coffee Sales",
+			          "ConceptualProperty": "Total Revenue"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Revenue": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "fact__coffee_sales.total_revenue_mom": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Fact - Coffee Sales",
+			          "ConceptualProperty": "Total Revenue MoM%"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Revenue MoM%": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    }
+			  }
 			}
 		contentType: json
 
